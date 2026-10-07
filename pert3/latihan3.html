@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pemesanan</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #eaf2f8;
+        }
+
+        .container {
+            width: 400px;
+            margin: 50px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #2c3e50;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: bold;
+            color: #34495e;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+
+        button {
+            width: 100%;
+            padding: 11px;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 15px;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+
+        .hitung {
+            background: #3498db;
+        }
+
+        .hitung:hover {
+            background: #2980b9;
+        }
+
+        .hapus {
+            background: #e74c3c;
+        }
+
+        .hapus:hover {
+            background: #c0392b;
+        }
+
+        #hasil {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            line-height: 1.8;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h2>Form Pemesanan Produk</h2>
+
+        <!-- ID disesuaikan menjadi produk, jumlah, dan harga agar sinkron dengan JavaScript -->
+        <label for="produk">Nama Produk</label>
+        <input type="text" id="produk" placeholder="Masukkan nama produk">
+
+        <label for="jumlah">Jumlah</label>
+        <input type="number" id="jumlah" placeholder="Masukkan jumlah">
+
+        <label for="harga">Harga Satuan</label>
+        <input type="number" id="harga" placeholder="Masukkan harga">
+
+        <button class="hitung" onclick="proses()">Hitung Total</button>
+        <button class="hapus" onclick="hapus()">Hapus</button>
+
+        <div id="hasil"></div>
+
+    </div>
+
+    <script>
+        function proses() {
+            let produk = document.getElementById("produk").value;
+            // Mengubah nilai input menjadi angka (Number)
+            let jumlah = Number(document.getElementById("jumlah").value);
+            let harga = Number(document.getElementById("harga").value);
+
+            if (produk === "" || jumlah <= 0 || harga <= 0) {
+                alert("Silakan isi data dengan benar!");
+                return;
+            }
+
+            // Memperbaiki rumus total: Jumlah dikali Harga Satuan
+            let total = jumlah * harga;
+
+            document.getElementById("hasil").innerHTML =
+                "<b>Rincian Pesanan</b><br>" +
+                "Produk : " + produk + "<br>" +
+                "Jumlah : " + jumlah + "<br>" +
+                "Harga : Rp" + harga.toLocaleString("id-ID") + "<br>" +
+                "<b>Total : Rp" + total.toLocaleString("id-ID") + "</b>";
+        }
+
+        function hapus() {
+            document.getElementById("produk").value = "";
+            document.getElementById("jumlah").value = "";
+            document.getElementById("harga").value = "";
+            document.getElementById("hasil").innerHTML = "";
+        }
+    </script>
+
+</body>
+</html>
