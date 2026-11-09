@@ -1,3 +1,10 @@
+<?php 
+	session_start();
+	if($_SESSION['username'] == null) {
+		header('location:../login.php');
+	}
+?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -62,7 +69,7 @@
 					<label for="categories">Price</label>
 					<input class="input" type="text" name="price" id="price" placeholder="Price" />
 					<label for="categories">Description</label>
-					<input class="input" type="text" name="Description" id="Description" placeholder="Description" />
+					<input class="input" type="text" name="description" id="description" placeholder="description" />
 					<label for="photo">Photo</label>
 					<input type="file" name="photo" id="photo" style="margin-bottom: 20px" />
 					<button type="submit" class="btn btn-simpan" name="simpan">

@@ -38,7 +38,7 @@
         <div class="center">
           <div class="form-login">
             <h3>Register</h3>
-            <form action="">
+            <form action="register-proses.php" method="post">
               <input
                 class="input"
                 type="email"

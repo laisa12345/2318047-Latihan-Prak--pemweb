@@ -37,7 +37,7 @@
         <div class="center">
           <div class="form-login">
             <h3>Login</h3>
-            <form action="">
+            <form action="login-proses.php" method="post">
               <input
                 class="input"
                 type="text"
@@ -54,7 +54,7 @@
                 Login
               </button>
             </form>
-            <a href="register.html" class="link-register" style="background-color: #ffb72b; width: 100%; padding: 8px 16px; border-radius: 10px; border: none; cursor: pointer; color: white; text-align: center;"> Register Disini</a>
+            <a href="register.php" class="link-register" style="background-color: #ffb72b; width: 100%; padding: 8px 16px; border-radius: 10px; border: none; cursor: pointer; color: white; text-align: center;"> Register Disini</a>
           </div>
         </div>
       </main>
